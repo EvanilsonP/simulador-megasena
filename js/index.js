@@ -1,5 +1,8 @@
 const numerosApostados = [];
 
+const btnApostar = document.getElementById('btnApostar');
+btnApostar.disabled = true;
+
 function selecionarNumeros(numero) {
     // Limitando quantidade de escolhas dos números da megasena: Min 4 - max 15
     if(numerosApostados.length >= 0 && numerosApostados.length < 15) {
