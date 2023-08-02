@@ -1,7 +1,24 @@
 const numerosApostados = [];
+const resultado = [];
+let valorAposta = = 0;
 
 const btnApostar = document.getElementById('btnApostar');
 btnApostar.disabled = true;
+
+sortearNumero();
+
+function sortearNumero() {
+    // Sorteando 6 números
+    for(i = 0; i < 6; i++) {
+        let numeroSorteado = Math.round(Math.random() * 59 + 1);
+
+        // Se tiver um número repetido, ele passará pela condinção while e o mesmo será substituido por um novo número
+        while(resultado.includes(numeroSorteado)) {
+            let numeroSorteado = Math.round(Math.random() * 59 + 1);
+        };
+        resultado.push(numeroSorteado);
+    }
+};
 
 function selecionarNumeros(numero) {
     // Limitando quantidade de escolhas dos números da megasena: Min 6 - max 15
@@ -69,4 +86,6 @@ function valorDaAposta(){
     }
     const divValorAposta = document.getElementById("valor");
     divValorAposta.innerHTML = "<p>valor da Aposta</p><p class='valor'>" + valorAposta + "</p>";
-}
+};
+
+
