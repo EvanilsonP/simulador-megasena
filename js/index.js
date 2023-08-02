@@ -1,6 +1,7 @@
 const numerosApostados = [];
 const resultado = [];
-let valorAposta = = 0;
+let valorAposta = 0;
+let qtdAcertos = 0;
 
 const btnApostar = document.getElementById('btnApostar');
 btnApostar.disabled = true;
@@ -11,11 +12,11 @@ function sortearNumero() {
     // Sorteando 6 números
     for(i = 0; i < 6; i++) {
         let numeroSorteado = Math.round(Math.random() * 59 + 1);
-
         // Se tiver um número repetido, ele passará pela condinção while e o mesmo será substituido por um novo número
         while(resultado.includes(numeroSorteado)) {
             let numeroSorteado = Math.round(Math.random() * 59 + 1);
         };
+        // Insere o número sorteado na lista
         resultado.push(numeroSorteado);
     }
 };
@@ -87,5 +88,15 @@ function valorDaAposta(){
     const divValorAposta = document.getElementById("valor");
     divValorAposta.innerHTML = "<p>valor da Aposta</p><p class='valor'>" + valorAposta + "</p>";
 };
+
+function apostar() {
+    // fazer a aposta - compara os números sorteados com os apostados
+    for(i = 0; i < numerosApostados.length; i++) {     //  Verifica os números apostados
+        for(j = 0; j < resultado.length; j++)          // Verifica se o número apostado é igual ao do resultado. Se sim, se ganha um acerto
+            if(numerosApostados[i] == resultado[j]) {
+                qtdAcertos++
+            }
+    }
+}
 
 
