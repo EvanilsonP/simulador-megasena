@@ -102,6 +102,10 @@ function apostar() {
     for(i = 0; i < resultado.length; i++) {
         divResultado.innerHTML += "<div class='resultadoCircle'>"+ resultado[i] +"</div>";
     }
+
+    // Mostrar a quantidade de acertos
+    let divAcertos = document.getElementById('acertos');
+    divAcertos.innerHTML = "<p>Acertos</p><p class='valor'>" + qtdAcertos + "</p>";
 };
 
 
