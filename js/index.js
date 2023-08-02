@@ -12,6 +12,7 @@ const themeToggle = document.querySelector(
     '.switch input[type="checkbox"]'
   );
 // Função que irá mudar o tema com base em se a alternância do tema está marcada ou não
+
 function switchTheme(e) {
     if (e.target.checked) {
     document.documentElement.setAttribute("data-theme", "dark");
@@ -103,6 +104,7 @@ function valorDaAposta(){
 };
 
 function apostar() {
+    document.getElementById('btnApostar').disabled = true;
     // fazer a aposta - compara os números sorteados com os apostados
     for(i = 0; i < numerosApostados.length; i++) {
         if(resultado.includes(numerosApostados[i])) {
