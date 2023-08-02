@@ -91,12 +91,17 @@ function valorDaAposta(){
 
 function apostar() {
     // fazer a aposta - compara os números sorteados com os apostados
-    for(i = 0; i < numerosApostados.length; i++) {     //  Verifica os números apostados
-        for(j = 0; j < resultado.length; j++)          // Verifica se o número apostado é igual ao do resultado. Se sim, se ganha um acerto
-            if(numerosApostados[i] == resultado[j]) {
-                qtdAcertos++
-            }
+    for(i = 0; i < numerosApostados.length; i++) {
+        if(resultado.includes(numerosApostados[i])) {
+            qtdAcertos++;
+        };
+    };
+
+    // mostrar resultado
+    const divResultado = document.getElementById('resultado');
+    for(i = 0; i < resultado.length; i++) {
+        divResultado.innerHTML += "<div class='resultadoCircle'>"+ resultado[i] +"</div>";
     }
-}
+};
 
 
