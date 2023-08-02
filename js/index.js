@@ -106,6 +106,15 @@ function apostar() {
     // Mostrar a quantidade de acertos
     let divAcertos = document.getElementById('acertos');
     divAcertos.innerHTML = "<p>Acertos</p><p class='valor'>" + qtdAcertos + "</p>";
+
+    // desabilitar todos os botões
+    desabilitarTodosNumeros();
 };
+
+function desabilitarTodosNumeros() {
+    for(i = 1; i <= 60; i++) {
+        document.getElementById("num_"+ i).disabled = true;
+    }
+}
 
 
