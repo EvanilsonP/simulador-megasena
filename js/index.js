@@ -8,6 +8,19 @@ btnApostar.disabled = true;
 
 sortearNumero();
 
+const themeToggle = document.querySelector(
+    '.switch input[type="checkbox"]'
+  );
+// Função que irá mudar o tema com base em se a alternância do tema está marcada ou não
+function switchTheme(e) {
+    if (e.target.checked) {
+    document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+    document.documentElement.setAttribute("data-theme", "light");
+    }
+};
+themeToggle.addEventListener('change', switchTheme, false);
+
 function sortearNumero() {
     // Sorteando 6 números
     for(i = 0; i < 6; i++) {
@@ -124,4 +137,17 @@ let btn = document.querySelector("#btnReiniciar");
 btn.addEventListener("click", function(){
     location.reload();
 });
+
+function mudarTema(e) {
+    if(e.target.checked) {
+        document.documentElement.setAttribute("data-theme", "dark");
+        // Define a preferência de tema do usuário como escuro
+        localStorage.setAttribute('theme', 'dark');
+
+    } else {
+        document.documentElement.setAttribute("data-theme", "light");
+        // Defina a preferência de tema do usuário como claro
+        localStorage.setItem('theme', 'light');
+    }
+}
 
